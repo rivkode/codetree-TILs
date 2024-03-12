@@ -83,13 +83,17 @@ public class Main {
         }
     }
 
-    // t : 검색 단어의 순서
+    // j : 단어 내의 검색 순서
     // 사전(sortedLst)에서 찾고자 하는 단어의 첫글자와 매칭 후 일치하면 해당 인덱스 반환
     public static int searchStart(int j, String word, int start, int end) {
         for (int i = start; i < end; i++) {
-            String s = sortedLst.get(i); // 탐색 포인터
-            if (s.charAt(j) == word.charAt(j)) {
-                return i;
+            String s = sortedLst.get(i);
+            if (j > s.length()) {
+                break;
+            } else {
+                if (s.charAt(j) == word.charAt(j)) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -98,8 +102,12 @@ public class Main {
     public static int searchEnd(int j, String word, int start, int end) {
         for (int i = end; i > start; i--) {
             String s = sortedLst.get(i);
-            if (s.charAt(j) == word.charAt(j)) {
-                return i;
+            if (j > s.length()) {
+                break;
+            } else {
+                if (s.charAt(j) == word.charAt(j)) {
+                    return i;
+                }
             }
         }
         return -1;
