@@ -88,7 +88,7 @@ public class Main {
     public static int searchStart(int j, String word, int start, int end) {
         for (int i = start; i < end; i++) {
             String s = sortedLst.get(i);
-            if (j > s.length()) {
+            if (j >= s.length()) {
                 break;
             } else {
                 if (s.charAt(j) == word.charAt(j)) {
@@ -102,7 +102,7 @@ public class Main {
     public static int searchEnd(int j, String word, int start, int end) {
         for (int i = end; i > start; i--) {
             String s = sortedLst.get(i);
-            if (j > s.length()) {
+            if (j >= s.length()) {
                 break;
             } else {
                 if (s.charAt(j) == word.charAt(j)) {
