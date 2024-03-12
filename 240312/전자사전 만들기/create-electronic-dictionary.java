@@ -85,31 +85,35 @@ public class Main {
 
     // j : 단어 내의 검색 순서
     // 사전(sortedLst)에서 찾고자 하는 단어의 첫글자와 매칭 후 일치하면 해당 인덱스 반환
+    // 찾는 단어가 없으면 ?
+    //
     public static int searchStart(int j, String word, int start, int end) {
         for (int i = start; i < end; i++) {
             String s = sortedLst.get(i);
+
+            // 사전에 있는 단어가 찾고자 하는 word보다 작을 경우
             if (j >= s.length()) {
-                break;
+                return i + 1;
             } else {
                 if (s.charAt(j) == word.charAt(j)) {
                     return i;
                 }
             }
         }
-        return -1;
+        return start;
     }
 
     public static int searchEnd(int j, String word, int start, int end) {
         for (int i = end; i > start; i--) {
             String s = sortedLst.get(i);
             if (j >= s.length()) {
-                break;
+                return i + 1;
             } else {
                 if (s.charAt(j) == word.charAt(j)) {
                     return i;
                 }
             }
         }
-        return -1;
+        return end;
     }
 }
