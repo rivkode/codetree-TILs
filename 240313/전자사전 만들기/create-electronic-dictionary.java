@@ -93,7 +93,7 @@ public class Main {
 
             // 사전에 있는 단어가 찾고자 하는 word보다 작을 경우
             if (j >= s.length()) {
-                return i + 1;
+                continue;
             } else {
                 if (s.charAt(j) == word.charAt(j)) {
                     return i;
