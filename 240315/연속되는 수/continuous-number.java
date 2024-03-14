@@ -31,6 +31,7 @@ public class Main {
 
         setList.addAll(inputList);
 
+
         if (setList.size() != 1) {
             Iterator<Integer> iterator = setList.iterator();
 
@@ -60,7 +61,7 @@ public class Main {
 
     // 입력된 리스트에 대해 가장 큰 중복된 숫자 개수를 리턴한다
     public static int duplicatedCount(List<Integer> list) {
-        int duplicatedCount = 0;
+        int duplicatedCount = 1;
         Stack<Integer> stack = new Stack<>();
         stack.push(list.get(0));
 
