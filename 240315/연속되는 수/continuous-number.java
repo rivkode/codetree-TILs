@@ -84,6 +84,10 @@ public class Main {
             }
         }
 
+        // 마지막 duplicatedCount 숫자 입력
+        // 왜냐하면 else문에서는 다음 바뀌는 숫자가 올때에만 stack에 쌓인 size()를 넣어주고 있으므로
+        countList.add(duplicatedCount);
+
         maxDuplicatedCount = Collections.max(countList);
 
         return maxDuplicatedCount;
