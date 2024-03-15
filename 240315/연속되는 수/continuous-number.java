@@ -1,11 +1,9 @@
 import java.io.*;
 import java.util.*;
 
-
 /**
  *
  */
-
 
 public class Main {
     static List<Integer> ansList;
@@ -62,19 +60,32 @@ public class Main {
     // 입력된 리스트에 대해 가장 큰 중복된 숫자 개수를 리턴한다
     public static int duplicatedCount(List<Integer> list) {
         int duplicatedCount = 1;
+        int maxDuplicatedCount;
+
+        List<Integer> countList = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
         stack.push(list.get(0));
 
+        // 다음 수가 왔을때 리스트에 따로 저장해서
+        // duplicatedCount들의 최대값을 return 해야함
         for (int i = 1; i < list.size(); i++) {
-            if (stack.peek() == list.get(i)) {
-                stack.add(list.get(i));
+            Integer stackPeek = stack.peek();
+            int listValue = list.get(i);
+
+            if (stackPeek.equals(listValue)) {
+                stack.add(listValue);
                 duplicatedCount = stack.size();
             } else {
+                countList.add(duplicatedCount);
+                // 중복 count 초기화
+                duplicatedCount = 1;
                 stack.clear();
-                stack.push(list.get(i));
+                stack.push(listValue);
             }
         }
 
-        return duplicatedCount;
+        maxDuplicatedCount = Collections.max(countList);
+
+        return maxDuplicatedCount;
     }
 }
