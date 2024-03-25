@@ -93,7 +93,7 @@ public class Main {
 
         // 만약 result에 아무 값도 없다면 겹친 부분이 없으므로 -1 출력
         if (results.size() == 0) {
-            bw.write(-1);
+            bw.write(String.valueOf(-1));
         } else {
             // 값이 존재할 경우 최소값을 출력
             bw.write(String.valueOf(Collections.min(results)));
