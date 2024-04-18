@@ -26,7 +26,7 @@ public class Main {
         }
 
         for (int v : arr) {
-            System.out.println(v);
+            System.out.print(v + " ");
         }
 
 
